@@ -44,61 +44,32 @@ function createMadLib() {
 
   // Save the completed story element as a string
   var story = document.getElementById("story").innerHTML;
+  console.log("story: " + story);
 
-  // add an event listener that will save the story as a JSON file
-  document
-    .getElementById("submitButton")
-    .addEventListener("click", function () {
-      // create JS object to store data first
-      var storyData = {
-        timestamp: Date.now(),
-        story: story,
-        adjective1: adjective1,
-        adjective2: adjective2,
-        adjecive3: adjective3,
-        noun1: noun1,
-        noun2: noun2,
-        noun3: noun3,
-        noun4: noun4,
-        name: name,
-        verb1: verb1,
-        verb2: verb2,
-        verb3: verb3,
-      };
+  // create JS object to store data first
+  var storyData = {
+    timestamp: Date.now(),
+    story: story,
+    adjective1: adjective1,
+    adjective2: adjective2,
+    adjecive3: adjective3,
+    noun1: noun1,
+    noun2: noun2,
+    noun3: noun3,
+    noun4: noun4,
+    name: name,
+    verb1: verb1,
+    verb2: verb2,
+    verb3: verb3,
+  };
+  console.log("storyData: " + storyData);
 
-      // convert JS object into JSON file
-      storyJSON = JSON.stringify(storyData);
+  // convert JS object into JSON file
+  storyJSON = JSON.stringify(storyData);
+  console.log("storyJSON: " + storyJSON);
 
-      saveStorytoDB(storyJSON);
-    });
+  // add storyJSON to database
+  db.collection("stories").add({
+    data: storyJSON,
+  });
 }
-
-// //STEP 2: Now that the data is saved as a JSON, upload it to our database
-// function saveStorytoDB(story) {
-//   // Import the functions you need from the SDKs you need
-//   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-//   import { firebase } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js";
-//   import { firestore } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js";
-//   // import "firebase/firestore";
-
-//   // Your web app's Firebase configuration
-//   const firebaseConfig = {
-//     apiKey: "AIzaSyBKPb7V2xsGrZvd2hXp2Enuj1haTEIoLi4",
-//     authDomain: "madlibs-bb9af.firebaseapp.com",
-//     projectId: "madlibs-bb9af",
-//     storageBucket: "madlibs-bb9af.appspot.com",
-//     messagingSenderId: "622424206247",
-//     appId: "1:622424206247:web:2939814263e699eeb86482",
-//   };
-
-//   // Initialize Firebase
-//   const app = initializeApp(firebaseConfig);
-
-//   // Initialize Cloud Firestore Database and get a reference to the service
-//   const db = firebase.firestore();
-
-//   // add storyJSON to database
-//   db.collection("stories").add({
-//     data: storyJSON,
-//   });
-// }
