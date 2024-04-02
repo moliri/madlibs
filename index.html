@@ -48,7 +48,9 @@
     <br />
 
     <!-- Button for users to submit MadLib -->
-    <button onclick="createMadLib()">Let's make our MadLib story!</button>
+    <button id="submitButton" onclick="createMadLib()">
+      Let's make our MadLib story!
+    </button>
     <br />
 
     <!-- Area where the story will appear -->
@@ -56,5 +58,35 @@
 
     <!-- JS files -->
     <script src="script.js"></script>
+    <!-- <script src="firebase.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script> -->
+    <!-- <script type="module">
+      // Firebase scripts
+
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+
+      import { firebase } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js";
+      // Required for side-effects
+      import { firestore } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js";
+      // import "firebase/firestore";
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBKPb7V2xsGrZvd2hXp2Enuj1haTEIoLi4",
+        authDomain: "madlibs-bb9af.firebaseapp.com",
+        projectId: "madlibs-bb9af",
+        storageBucket: "madlibs-bb9af.appspot.com",
+        messagingSenderId: "622424206247",
+        appId: "1:622424206247:web:2939814263e699eeb86482",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      // Initialize Cloud Firestore Database and get a reference to the service
+      const db = firebase.firestore();
+    </script> -->
   </body>
 </html>
