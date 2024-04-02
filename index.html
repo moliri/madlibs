@@ -1,35 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <title>A Sonic MadLib</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-  <h1>Sonic Madlib Excerpt</h1>
-  <div id="box">
-   <img src="sonic.jpeg" alt="Sonic jpeg">
-  </div>
-  <p>
-  <form>
-    <h2>Enter the following:</h2>
-    <label for="adj1">An adjective:</label>
-    <input type="text" id="adj1"><br>
-    <label for="adj2">An adjective:</label>
-    <input type="text" id="adj2"><br>
-    <label for="noun1">A noun:</label>
-    <input type="text" id="noun1"><br>
-    <label for="noun2">A noun:</label>
-    <input type="text" id="noun2"><br>
-    <label for="adj3">An adjective:</label>
-    <input type="text" id="adj3"><br>
-    <label for="noun3">A noun:</label>
-    <input type="text" id="noun3"><br>
-    <label for="noun4">A plural noun:</label>
-    <input type="text" id="noun4"><br>
-  </form>
-  <button onclick="printMadLib()">View MadLib</button>
-  </p>
-  <p id="output"></p>
-  <script src="script.js"></script>
-</body>
+  <head>
+    <title>A Silly MadLib</title>
+
+    <!-- CSS files -->
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <h1>Would you like to write a short story with me?</h1>
+
+    <!-- Form requesting user input -->
+
+    <form>
+      <h2>Fill in the blanks below:</h2>
+      <br />
+      <label for="adjective1">adjective 1:</label>
+      <input type="text" id="adjective1" /> <br />
+      <label for="adjective2">adjective 2:</label>
+      <input type="text" id="adjective2" /> <br />
+      <label for="adjective3">adjective 3:</label>
+      <input type="text" id="adjective3" /> <br />
+      <br />
+
+      <label for="noun1">noun 1:</label>
+      <input type="text" id="noun1" /> <br />
+      <label for="noun2">noun 2:</label>
+      <input type="text" id="noun2" /> <br />
+      <label for="noun3">noun 3:</label>
+      <input type="text" id="noun3" /> <br />
+      <label for="noun4">noun 4:</label>
+      <input type="text" id="noun4" /> <br />
+      <br />
+
+      <label for="name">name:</label>
+      <input type="text" id="name" /> <br />
+      <br />
+
+      <label for="verb1">verb 1:</label>
+      <input type="text" id="verb1" /> <br />
+      <label for="verb2">verb 2:</label>
+      <input type="text" id="verb2" /> <br />
+      <label for="verb3">verb 3:</label>
+      <input type="text" id="verb3" /> <br />
+      <br />
+    </form>
+    <br />
+
+    <!-- Button for users to submit MadLib -->
+    <button onclick="createMadLib()">Let's make our MadLib story!</button>
+    <br />
+
+    <!-- Area where the story will appear -->
+    <p id="story"></p>
+
+    <!-- JS files -->
+    <script src="script.js"></script>
+  </body>
 </html>

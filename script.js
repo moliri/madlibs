@@ -1,11 +1,41 @@
-function printMadLib() {
-  var adj1=document.getElementById('adj1').value;
-  var noun1=document.getElementById('noun1').value;
-  var adj2=document.getElementById('adj2').value;
-  var noun2=document.getElementById('noun2').value;
-  var adj3=document.getElementById('adj3').value;
-  var noun3=document.getElementById('noun3').value;
-  var noun4=document.getElementById('noun4').value;
+function createMadLib() {
+  var adjective1 = document.getElementById("adjective1").value;
+  var adjective2 = document.getElementById("adjective2").value;
+  var adjective3 = document.getElementById("adjective3").value;
 
-  document.getElementById('output').innerHTML = "Sonic's abode is a very <u>"+adj1+"</u> place. At first glance, it seems like a/an <u>"+adj2+"</u> cave, but if you look closer, you'll see it's actually a comfortable <u>"+noun1+"</u>. For one, Sonic has a super-cozy beanbag <u>"+noun2+"</u>. When he feels like listening to some <u>"+adj3+"</u> tunes from the 1980s, Sonic turns on his old-school <u>"+noun3+"</u>, pulls out his collection of <u>"+noun4+"</u>, and jams out.";
+  var noun1 = document.getElementById("noun1").value;
+  var noun2 = document.getElementById("noun2").value;
+  var noun3 = document.getElementById("noun3").value;
+  var noun4 = document.getElementById("noun4").value;
+
+  var name = document.getElementById("name").value;
+
+  var verb1 = document.getElementById("verb1").value;
+  var verb2 = document.getElementById("verb2").value;
+  var verb3 = document.getElementById("verb3").value;
+
+  document.getElementById("story").innerHTML =
+    "It was a <u>" +
+    adjective1 +
+    "</u> Spring day. I woke up to the <u>" +
+    adjective2 +
+    "</u> smell of <u>" +
+    noun1 +
+    "</u> roasting in the oven downstairs. I <u>" +
+    verb1 +
+    "</u> down the stairs to see if I can help <u>" +
+    verb2 +
+    "</u> breakfast.  My mom said 'See if the neighbor, <u>" +
+    name +
+    "</u>,  has any fresh <u>" +
+    noun2 +
+    "</u>.' When I got there, I couldn't believe my <u>" +
+    noun3 +
+    "</u>! There was a <u>" +
+    adjective3 +
+    "</u>duck <u>" +
+    verb3 +
+    "</u> on the <u>" +
+    noun4 +
+    "</u>!";
 }
