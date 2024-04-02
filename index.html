@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A Sonic MadLib</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <h1>Sonic Madlib Excerpt</h1>
+  <div id="box">
+   <img src="sonic.jpeg" alt="Sonic jpeg">
+  </div>
+  <p>
+  <form>
+    <h2>Enter the following:</h2>
+    <label for="adj1">An adjective:</label>
+    <input type="text" id="adj1"><br>
+    <label for="adj2">An adjective:</label>
+    <input type="text" id="adj2"><br>
+    <label for="noun1">A noun:</label>
+    <input type="text" id="noun1"><br>
+    <label for="noun2">A noun:</label>
+    <input type="text" id="noun2"><br>
+    <label for="adj3">An adjective:</label>
+    <input type="text" id="adj3"><br>
+    <label for="noun3">A noun:</label>
+    <input type="text" id="noun3"><br>
+    <label for="noun4">A plural noun:</label>
+    <input type="text" id="noun4"><br>
+  </form>
+  <button onclick="printMadLib()">View MadLib</button>
+  </p>
+  <p id="output"></p>
+  <script src="script.js"></script>
+</body>
+</html>

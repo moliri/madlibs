@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+  background-color: blue;
+  color: white;
+}
+p {
+  font-size: 20px;
+}
+input {
+  border: 2px solid #002e7a;
+  text-align: left;
+}
+label {
+  color: blue;
+  float: left;
+  font-weight: bold;
+  width: 180px;
+}
+#box {
+  width: 230px;
+  border: 1px solid black;
+  float: right;
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  background: #0433ff;
+}
