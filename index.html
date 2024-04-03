@@ -48,7 +48,7 @@
     <br />
 
     <!-- Button for users to submit MadLib -->
-    <button id="submitButton" onclick="createMadLib()">
+    <button id="submitButton" onclick="saveStory()">
       Let's make our MadLib story!
     </button>
     <br />
@@ -57,14 +57,10 @@
     <p id="story"></p>
 
     <!-- JS files -->
-    <!-- <script src="firebase.js"></script> -->
     <script src="script.js"></script>
-    <script type="module"> 
-      // Firebase Setup
-      import { firebase } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js";
+    <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
       import { getFirestore } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js";
-
 
       // Your web app's Firebase configuration
       const firebaseConfig = {
@@ -76,11 +72,11 @@
         appId: "1:622424206247:web:2939814263e699eeb86482",
       };
       
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-
-      // Initialize Cloud Firestore Database and get a reference to the service
-      const db = firebase.firestore();
+      // initialize app 
+      const app = initializeApp(firebaseConfig);
+      // initialize database
+      const db = getFirestore(app);
+      
     </script>
   </body>
 </html>
