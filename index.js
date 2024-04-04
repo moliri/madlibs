@@ -2,14 +2,13 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
 import {
   getFirestore,
-  collection,
   doc,
   setDoc,
-  getDocs,
-  getDoc,
 } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 
 import { createMadLib } from "./script.js";
+
+console.log("firebase imports complete");
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -27,7 +26,7 @@ var db = getFirestore(app);
 console.log("firebase setup complete!");
 
 // add storyData to database
-const stories = doc(db, "stories");
+const stories = doc(db, "stories/newStory");
 function writeStorytoDB() {
   const storyData = createMadLib();
   setDoc(stories, storyData, { merge: true });
