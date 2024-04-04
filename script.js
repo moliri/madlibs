@@ -1,22 +1,20 @@
 function createMadLib() {
   // Get the user input from the form
   console.log("createMadLib() called");
-  var madlibForm = document.getElementById(madlibForm);
-  
-  var adjective1 = madlibForm.adjective1.value;
-  var adjective2 = madlibForm.adjective2.value;
-  var adjective3 = madlibForm.adjective3.value;
+  var adjective1 = document.getElementById("adjective1").value;
+  var adjective2 = document.getElementById("adjective2").value;
+  var adjective3 = document.getElementById("adjective3").value;
 
-  var noun1 = madlibForm.noun1.value;
-  var noun2 = madlibForm.noun2.value;
-  var noun3 = madlibForm.noun3.value;
-  var noun4 = madlibForm.noun4.value;
+  var noun1 = document.getElementById("noun1").value;
+  var noun2 = document.getElementById("noun2").value;
+  var noun3 = document.getElementById("noun3").value;
+  var noun4 = document.getElementById("noun4").value;
 
-  var name = madlibForm.name.value;
+  var name = document.getElementById("name").value;
 
-  var verb1 = madlibForm.verb1.value;
-  var verb2 = madlibForm.verb2.value;
-  var verb3 = madlibForm.verb3.value;
+  var verb1 = document.getElementById("verb1").value;
+  var verb2 = document.getElementById("verb2").value;
+  var verb3 = document.getElementById("verb3").value;
 
   // Create the story using the user input, and set the text inside our story element in the HTML to reflect the story
   document.getElementById("story").innerHTML =
@@ -48,7 +46,7 @@ function createMadLib() {
   var story = document.getElementById("story").innerHTML;
   console.log("story: " + story);
 
-  // create JS object to store data
+  // create JS object to store data first
   var storyData = {
     timestamp: Date.now(),
     story: story,
@@ -64,10 +62,7 @@ function createMadLib() {
     verb2: verb2,
     verb3: verb3,
   };
-
-  // convert JS object to JSON file to print to console
-  var storyJSON = JSON.stringify(storyData);
-  console.log("storyJSON: " + storyJSON);
+  console.log("storyData: " + storyData);
 
   return storyData;
 

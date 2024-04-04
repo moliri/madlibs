@@ -7,8 +7,9 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
 
     <!-- JS files -->
-    <script type="module" src="index.js"></script>
     <script src="script.js"></script>
+    <script type="module" src="firebaseSetup.js"></script>
+    
   </head>
 
   <body>
@@ -16,36 +17,49 @@
 
     <!-- Form requesting user input -->
 
-    <form id=madlibForm>
+    <form>
       <h2>Fill in the blanks below:</h2>
       <br />
-      <input type="text" name="adjective1" placeholder="adjective 1" /> <br />
-      <input type="text" name="adjective2" placeholder="adjective 2" /> <br />
-      <input type="text" name="adjective3" placeholder="adjective 3" /> <br />
-      <br />
-      <input type="text" name="noun1" placeholder="noun 1" /> <br />
-      <input type="text" name="noun2" placeholder="noun 2" /> <br />
-      <input type="text" name="noun3" placeholder="noun 3" /> <br />
-      <input type="text" name="noun4" placeholder="noun 4" /> <br />
-      <br />
-      <input type="text" name="name" placeholder="name" /> <br />
+      <label for="adjective1">adjective 1:</label>
+      <input type="text" id="adjective1" /> <br />
+      <label for="adjective2">adjective 2:</label>
+      <input type="text" id="adjective2" /> <br />
+      <label for="adjective3">adjective 3:</label>
+      <input type="text" id="adjective3" /> <br />
       <br />
 
-      <input type="text" name="verb1" placeholder="verb 1" /> <br />
-      <input type="text" name="verb2" placeholder="verb 2" /> <br />
-      <input type="text" name="verb3" placeholder="verb 3" /> <br />
+      <label for="noun1">noun 1:</label>
+      <input type="text" id="noun1" /> <br />
+      <label for="noun2">noun 2:</label>
+      <input type="text" id="noun2" /> <br />
+      <label for="noun3">noun 3:</label>
+      <input type="text" id="noun3" /> <br />
+      <label for="noun4">noun 4:</label>
+      <input type="text" id="noun4" /> <br />
       <br />
 
-      <!-- Button for users to submit MadLib -->
-      <button id="submitButton" onclick="createMadLib()">
-        Let's write our MadLib story!
-      </button>
+      <label for="name">name:</label>
+      <input type="text" id="name" /> <br />
       <br />
-      
+
+      <label for="verb1">verb 1:</label>
+      <input type="text" id="verb1" /> <br />
+      <label for="verb2">verb 2:</label>
+      <input type="text" id="verb2" /> <br />
+      <label for="verb3">verb 3:</label>
+      <input type="text" id="verb3" /> <br />
+      <br />
     </form>
+    <br />
+
+    <!-- Button for users to submit MadLib -->
+    <button id="submitButton" onclick="createMadLib()">
+      Let's make our MadLib story!
+    </button>
     <br />
 
     <!-- Area where the story will appear -->
     <p id="story"></p>
+    
   </body>
-</html>
+</html> 
