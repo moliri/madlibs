@@ -13,7 +13,7 @@ import { createMadLib } from "./script.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  ,
+  apiKey: "AIzaSyBKPb7V2xsGrZvd2hXp2Enuj1haTEIoLi4",
   authDomain: "madlibs-bb9af.firebaseapp.com",
   projectId: "madlibs-bb9af",
   storageBucket: "madlibs-bb9af.appspot.com",
