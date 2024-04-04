@@ -64,12 +64,8 @@ function createMadLib() {
   };
   console.log("storyData: " + storyData);
 
-  // saveStory(storyData);
   return storyData;
-}
 
-// function saveStory(storyData) {
-//   return storyData;
-// }
+}
 
 

@@ -9,7 +9,7 @@ import {
   getDoc,
 } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 
-import { createMadlib } from "./script.js";
+import { createMadLib } from "./script.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -29,7 +29,7 @@ console.log("firebase setup complete!");
 // add storyData to database
 const stories = doc(db, "stories");
 function writeStorytoDB() {
-  const storyData = createMadlib();
+  const storyData = createMadLib();
   setDoc(stories, storyData, { merge: true });
 }
 
