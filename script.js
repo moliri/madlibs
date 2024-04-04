@@ -1,14 +1,3 @@
-function saveStory() {
-  // save the story JSON file to the database
-  console.log("saveStory() called");
-  var storyJSON = createMadLib();
-
-  // add storyJSON to database
-  db.collection("stories").add({
-    data: storyJSON,
-  });
-}
-
 function createMadLib() {
   // Get the user input from the form
   console.log("createMadLib() called");
@@ -75,8 +64,12 @@ function createMadLib() {
   };
   console.log("storyData: " + storyData);
 
-  // convert JS object into JSON file and return it
-  storyJSON = JSON.stringify(storyData);
-  console.log("storyJSON: " + storyJSON);
-  return storyJSON;
+  // saveStory(storyData);
+  return storyData;
 }
+
+// function saveStory(storyData) {
+//   return storyData;
+// }
+
+
