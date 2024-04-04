@@ -5,6 +5,11 @@
 
     <!-- CSS files -->
     <link href="style.css" rel="stylesheet" type="text/css" />
+
+    <!-- JS files -->
+    <script type="module" src="firebaseSetup.js"></script>
+    <script src="script.js"></script>
+    
   </head>
 
   <body>
@@ -55,28 +60,6 @@
 
     <!-- Area where the story will appear -->
     <p id="story"></p>
-
-    <!-- JS files -->
-    <script src="script.js"></script>
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-      import { getFirestore } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js";
-
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyBKPb7V2xsGrZvd2hXp2Enuj1haTEIoLi4",
-        authDomain: "madlibs-bb9af.firebaseapp.com",
-        projectId: "madlibs-bb9af",
-        storageBucket: "madlibs-bb9af.appspot.com",
-        messagingSenderId: "622424206247",
-        appId: "1:622424206247:web:2939814263e699eeb86482",
-      };
-      
-      // initialize app 
-      const app = initializeApp(firebaseConfig);
-      // initialize database
-      const db = getFirestore(app);
-      
-    </script>
+    
   </body>
 </html>
