@@ -67,9 +67,10 @@ function createMadLib() {
   // save data in JSON format (easy to share + print to console)
   var storyJSON = JSON.stringify(storyData);
   console.log("storyJSON: " + storyJSON);
+  return storyJSON;
 
   //now, add data to database
-  db.collection("stories/newStory").add(storyData);
+  // db.collection("stories/newStory").add(storyData);
 
-  return storyJSON;
+  
 }
