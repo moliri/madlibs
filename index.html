@@ -9,9 +9,9 @@
     <!-- JS files -->
     <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
-    <script src="script.js"></script>
-    <script type="module" src="firebase.js">
+    <script type="module">
       // setup firebase app and firestore database
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
       const firebaseConfig = {
         apiKey: "AIzaSyBKPb7V2xsGrZvd2hXp2Enuj1haTEIoLi4",
         authDomain: "madlibs-bb9af.firebaseapp.com",
@@ -21,9 +21,10 @@
         appId: "1:622424206247:web:2939814263e699eeb86482",
       }; 
       const app = firebase.initializeApp(firebaseConfig);
-      var db = firebase.firestore.getFirestore(app);
+      var db = getFirestore(app);
       console.log("firebase setup complete!");
     </script>
+    <script src="script.js"></script>
   </head>
 
   <body>
