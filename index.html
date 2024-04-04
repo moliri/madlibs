@@ -7,9 +7,23 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
 
     <!-- JS files -->
+    <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
     <script src="script.js"></script>
-    <script type="module" src="firebase.js"></script>
-    
+    <script type="module" src="firebase.js">
+      // setup firebase app and firestore database
+      const firebaseConfig = {
+        apiKey: "AIzaSyBKPb7V2xsGrZvd2hXp2Enuj1haTEIoLi4",
+        authDomain: "madlibs-bb9af.firebaseapp.com",
+        projectId: "madlibs-bb9af",
+        storageBucket: "madlibs-bb9af.appspot.com",
+        messagingSenderId: "622424206247",
+        appId: "1:622424206247:web:2939814263e699eeb86482",
+      }; 
+      const app = firebase.initializeApp(firebaseConfig);
+      var db = firebase.firestore.getFirestore(app);
+      console.log("firebase setup complete!");
+    </script>
   </head>
 
   <body>
@@ -54,12 +68,11 @@
 
     <!-- Button for users to submit MadLib -->
     <button id="submitButton" onclick="createMadLib()">
-      Let's make our MadLib story!
+      Let's write our MadLib story!
     </button>
     <br />
 
     <!-- Area where the story will appear -->
     <p id="story"></p>
-    
   </body>
-</html> 
+</html>
