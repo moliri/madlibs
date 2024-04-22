@@ -51,9 +51,27 @@
     </form>
     <br />
 
-    <!-- Button for users to submit MadLib -->
-    <button id="submitButton" onclick="createMadLib()">
-      Let's write our MadLib story!
+    <!-- Button for users to generate MadLib -->
+    <button id="createButton" onclick="createMadLib()">
+      create our MadLib story
+    </button>
+    <br />
+
+    <!-- Button for users to save MadLib -->
+    <button id="saveButton" onclick="saveMadLib()">
+      save our MadLib story
+    </button>
+    <br />
+
+    <!-- Button for users to retrieve a MadLib -->
+    <button id="retrieveButton" onclick="retrieveMadLib()">
+      retrieve an existing MadLib story
+    </button>
+    <br />
+
+    <!-- Button for users to edit a MadLib -->
+    <button id="editButton" onclick="editMadLib()">
+      edit an existing a MadLib story
     </button>
     <br />
 
@@ -71,7 +89,7 @@
         storageBucket: "madlibs-bb9af.appspot.com",
         messagingSenderId: "622424206247",
         appId: "1:622424206247:web:2939814263e699eeb86482",
-      }; 
+      };
       const app = firebase.initializeApp(firebaseConfig);
       var db = getFirestore(app);
       console.log("firebase setup complete!");

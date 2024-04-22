@@ -1,5 +1,5 @@
 function createMadLib() {
-  // Get the user input from the form
+  // get user input from form and write/display madlib
   console.log("createMadLib() called");
   var adjective1 = document.getElementById("adjective1").value;
   var adjective2 = document.getElementById("adjective2").value;
@@ -71,6 +71,19 @@ function createMadLib() {
 
   //now, add data to database
   // db.collection("stories/newStory").add(storyData);
+}
 
-  
+function saveMadLib() {
+  // save madlib to database
+  console.log("saveMadLib() called");
+}
+
+function retrieveMadLib() {
+  // retrieve an existing madlib from database
+  console.log("retrieveMadLib() called");
+}
+
+function editMadLib() {
+  // edit an existing madlib in database
+  console.log("editMadLib() called");
 }
