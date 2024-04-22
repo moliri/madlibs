@@ -56,11 +56,13 @@
       create our MadLib story
     </button>
     <br />
+    <br />
 
     <!-- Button for users to save MadLib -->
     <button id="saveButton" onclick="saveMadLib()">
       save our MadLib story
     </button>
+    <br />
     <br />
 
     <!-- Button for users to retrieve a MadLib -->
@@ -68,11 +70,13 @@
       retrieve an existing MadLib story
     </button>
     <br />
+    <br />
 
     <!-- Button for users to edit a MadLib -->
     <button id="editButton" onclick="editMadLib()">
       edit an existing a MadLib story
     </button>
+    <br />
     <br />
 
     <!-- Area where the story will appear -->
@@ -80,19 +84,18 @@
 
     <!-- JS for Firebase -->
     <script type="module">
-      // setup firebase app and firestore database
-      import { getFirestore } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
-      const firebaseConfig = {
-        apiKey: "AIzaSyBKPb7V2xsGrZvd2hXp2Enuj1haTEIoLi4",
-        authDomain: "madlibs-bb9af.firebaseapp.com",
-        projectId: "madlibs-bb9af",
-        storageBucket: "madlibs-bb9af.appspot.com",
-        messagingSenderId: "622424206247",
-        appId: "1:622424206247:web:2939814263e699eeb86482",
-      };
-      const app = firebase.initializeApp(firebaseConfig);
-      var db = getFirestore(app);
-      console.log("firebase setup complete!");
+      // // setup firebase app and firestore database
+      // const firebaseConfig = {
+      //   apiKey: "AIzaSyBKPb7V2xsGrZvd2hXp2Enuj1haTEIoLi4",
+      //   authDomain: "madlibs-bb9af.firebaseapp.com",
+      //   projectId: "madlibs-bb9af",
+      //   storageBucket: "madlibs-bb9af.appspot.com",
+      //   messagingSenderId: "622424206247",
+      //   appId: "1:622424206247:web:2939814263e699eeb86482",
+      // };
+      // const app = firebase.initializeApp(firebaseConfig);
+      // const db = firebase.firestore();
+      // console.log("firebase setup complete!");
     </script>
     <script src="script.js"></script>
   </body>
