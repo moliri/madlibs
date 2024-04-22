@@ -1,15 +1,15 @@
 // setup firebase app and firestore database
-      const firebaseConfig = {
-        apiKey: "AIzaSyBKPb7V2xsGrZvd2hXp2Enuj1haTEIoLi4",
-        authDomain: "madlibs-bb9af.firebaseapp.com",
-        projectId: "madlibs-bb9af",
-        storageBucket: "madlibs-bb9af.appspot.com",
-        messagingSenderId: "622424206247",
-        appId: "1:622424206247:web:2939814263e699eeb86482",
-      };
-      const app = firebase.initializeApp(firebaseConfig);
-      const db = firebase.firestore();
-      console.log("firebase setup complete!");
+const firebaseConfig = {
+  apiKey: "AIzaSyBKPb7V2xsGrZvd2hXp2Enuj1haTEIoLi4",
+  authDomain: "madlibs-bb9af.firebaseapp.com",
+  projectId: "madlibs-bb9af",
+  storageBucket: "madlibs-bb9af.appspot.com",
+  messagingSenderId: "622424206247",
+  appId: "1:622424206247:web:2939814263e699eeb86482",
+};
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+console.log("firebase setup complete!");
 
 function createMadLib() {
   // get user input from form and write/display madlib
@@ -80,7 +80,7 @@ function createMadLib() {
   // save data in JSON format (easy to share + print to console)
   var storyJSON = JSON.stringify(storyData);
   console.log("storyJSON: " + storyJSON);
-  return storyJSON;
+  return storyData;
 }
 
 function saveMadLib() {
@@ -89,7 +89,8 @@ function saveMadLib() {
 
   //now, add data to database
   var storyData = createMadLib();
-  db.collection("stories/newStory").add(storyData);
+  // db.collection("stories/newStory").add(storyData);
+  db.collection("madlibs").doc("new-story").set(storyData);
 }
 
 function retrieveMadLib() {
