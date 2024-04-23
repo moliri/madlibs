@@ -9,7 +9,7 @@ h1 {
 
 h2 {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: #b4469a;
+  color: #0d5a6b;
 }
 
 #story {
@@ -28,4 +28,11 @@ label {
   margin: 5px;
   font-weight: bold;
   width: 180px;
+}
+
+button {
+  font-size: 20px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #FFFFFF;
+  background-color: #0d5a6b;
 }
