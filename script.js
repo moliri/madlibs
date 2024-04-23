@@ -97,6 +97,23 @@ function saveMadLib() {
 function retrieveMadLib() {
   // retrieve an existing madlib from database
   console.log("retrieveMadLib() called");
+  var storyName = prompt("Enter the name of the story you want to look up:");
+  var storyData;
+  db.collection("madlibs").doc(storyName).get().then((doc) => {
+      if (doc.exists) {
+        console.log("Document data:", doc.data());
+        storyData = doc.data();
+        document.getElementById("story").innerHTML = storyData.story;
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+        document.getElementById("story").innerHTML = "Story not found!";
+      }
+    })
+    .catch((error) => {
+      console.log("Error getting document:", error);
+      document.getElementById("story").innerHTML = "Story not found!";
+    });
 }
 
 function editMadLib() {
