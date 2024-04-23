@@ -119,4 +119,41 @@ function retrieveMadLib() {
 function editMadLib() {
   // edit an existing madlib in database
   console.log("editMadLib() called");
+  // first retrieve an existing madlib from database
+  console.log("retrieveMadLib() called");
+  var storyName = prompt("Enter the name of the story you want to look up:");
+  var storyData;
+  db.collection("madlibs").doc(storyName).get().then((doc) => {
+      if (doc.exists) {
+        console.log("Document data:", doc.data());
+        storyData = doc.data();
+        
+        //if story is found, display all the inputs with the story
+        document.getElementById("adjective1").value = storyData.adjective1;
+        document.getElementById("adjective2").value = storyData.adjective2;
+        document.getElementById("adjective3").value = storyData.adjecive3;
+
+        document.getElementById("noun1").value = storyData.noun1;
+        document.getElementById("noun2").value = storyData.noun2;
+        document.getElementById("noun3").value = storyData.noun3;
+        document.getElementById("noun4").value = storyData.noun4;
+
+        document.getElementById("name").value = storyData.name;
+
+        document.getElementById("verb1").value = storyData.verb1;
+        document.getElementById("verb2").value = storyData.verb2;
+        document.getElementById("verb3").value = storyData.verb3;
+        document.getElementById("storyName").value = storyData.storyName;
+        
+        document.getElementById("story").innerHTML = storyData.story;
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+        document.getElementById("story").innerHTML = "Story not found!";
+      }
+    })
+    .catch((error) => {
+      console.log("Error getting document:", error);
+      document.getElementById("story").innerHTML = "Story not found!";
+    });
 }
