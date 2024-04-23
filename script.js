@@ -108,10 +108,12 @@ function retrieveMadLib() {
 
   // first, ask the user to type the story they want to retrieve
   var storyName = prompt("Enter the name of the story you want to look up:");
-  db.collection("madlibs").doc(storyName).get().then((doc) => {
-    
-    // if the story exists in the database, show it on the website. else, say "Story not found!"  
-    if (doc.exists) {
+  db.collection("madlibs")
+    .doc(storyName)
+    .get()
+    .then((doc) => {
+      // if the story exists in the database, show it on the website. else, say "Story not found!"
+      if (doc.exists) {
         console.log("Document data:", doc.data());
         var storyData = doc.data();
         document.getElementById("story").innerHTML = storyData.story;
@@ -130,14 +132,17 @@ function retrieveMadLib() {
 function editMadLib() {
   // this method will allow the user to edit an existing madlib in database
   console.log("editMadLib() called");
-  
+
   // first, ask the user to retrieve an existing madlib from database
   var storyName = prompt("Enter the name of the story you want to look up:");
-  db.collection("madlibs").doc(storyName).get().then((doc) => {
+  db.collection("madlibs")
+    .doc(storyName)
+    .get()
+    .then((doc) => {
       if (doc.exists) {
         console.log("Document data:", doc.data());
         var storyData = doc.data();
-        
+
         //if story is found, display all the previous inputs for the story. else, display "Story not found!"
         document.getElementById("adjective1").value = storyData.adjective1;
         document.getElementById("adjective2").value = storyData.adjective2;
@@ -154,8 +159,37 @@ function editMadLib() {
         document.getElementById("verb2").value = storyData.verb2;
         document.getElementById("verb3").value = storyData.verb3;
         document.getElementById("storyName").value = storyData.storyName;
-        
+
         document.getElementById("story").innerHTML = storyData.story;
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+        document.getElementById("story").innerHTML = "Story not found!";
+      }
+    })
+    .catch((error) => {
+      console.log("Error getting document:", error);
+      document.getElementById("story").innerHTML = "Story not found!";
+    });
+}
+
+function deleteMadLib() {
+  // this method will retrieve an existing madlib from database and delete it
+  console.log("deleteMadLib() called");
+
+  // first, ask the user to type the story they want to retrieve
+  var storyName = prompt("Enter the name of the story you want to delete:");
+  db.collection("madlibs")
+    .doc(storyName)
+    .get()
+    .then((doc) => {
+      // if the story exists in the database, delete it from the database. else, say "Story not found!"
+      if (doc.exists) {
+        console.log("Document data:", doc.data());
+        var storyData = doc.data();
+        document.getElementById("story").innerHTML =
+          storyData.storyName + " successfully deleted!";
+        db.collection("madlibs").doc(storyName).delete();
       } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
