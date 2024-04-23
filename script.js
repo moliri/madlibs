@@ -29,6 +29,8 @@ function createMadLib() {
   var verb2 = document.getElementById("verb2").value;
   var verb3 = document.getElementById("verb3").value;
 
+  var storyName = document.getElementById("storyName").value;
+
   // Create the story using the user input, and set the text inside our story element in the HTML to reflect the story
   document.getElementById("story").innerHTML =
     "It was a <u>" +
@@ -53,7 +55,8 @@ function createMadLib() {
     verb3 +
     "</u> on the <u>" +
     noun4 +
-    "</u>!";
+    "</u>! - " +
+    storyName;
 
   // Save the completed story element as a string
   var story = document.getElementById("story").innerHTML;
@@ -74,8 +77,8 @@ function createMadLib() {
     verb1: verb1,
     verb2: verb2,
     verb3: verb3,
+    storyName: storyName,
   };
-  console.log("storyData: " + storyData);
 
   // save data in JSON format (easy to share + print to console)
   var storyJSON = JSON.stringify(storyData);
@@ -86,11 +89,9 @@ function createMadLib() {
 function saveMadLib() {
   // save madlib to database
   console.log("saveMadLib() called");
-
-  //now, add data to database
   var storyData = createMadLib();
-  // db.collection("stories/newStory").add(storyData);
-  db.collection("madlibs").doc("new-story").set(storyData);
+  db.collection("madlibs").doc(storyData.storyName).set(storyData);
+  alert(storyData.storyName + " saved to database!");
 }
 
 function retrieveMadLib() {
