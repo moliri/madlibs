@@ -12,7 +12,9 @@ const db = firebase.firestore();
 console.log("firebase setup complete!");
 
 function createMadLib() {
-  // get user input from form and write/display madlib
+  // this method will create and display madlib based on user input from form
+
+  //first, save all user inputs as local variables
   console.log("createMadLib() called");
   var adjective1 = document.getElementById("adjective1").value;
   var adjective2 = document.getElementById("adjective2").value;
@@ -31,7 +33,7 @@ function createMadLib() {
 
   var storyName = document.getElementById("storyName").value;
 
-  // Create the story using the user input, and set the text inside our story element in the HTML to reflect the story
+  // next, set the text inside our "story" element in the HTML based on the variables above
   document.getElementById("story").innerHTML =
     "It was a <u>" +
     adjective1 +
@@ -58,11 +60,11 @@ function createMadLib() {
     "</u>! - " +
     storyName;
 
-  // Save the completed story element as a string
+  // next, save the entire story element as a string
   var story = document.getElementById("story").innerHTML;
   console.log("story: " + story);
 
-  // create JS object to store data first
+  // next, create JS object that stores each variable needed for the story
   var storyData = {
     timestamp: Date.now(),
     story: story,
@@ -80,29 +82,38 @@ function createMadLib() {
     storyName: storyName,
   };
 
-  // save data in JSON format (easy to share + print to console)
+  // next, save data in JSON format (easy to share + print to console)
   var storyJSON = JSON.stringify(storyData);
   console.log("storyJSON: " + storyJSON);
+
+  // finally, return the storyData object
   return storyData;
 }
 
 function saveMadLib() {
-  // save madlib to database
+  // this method saves the madlib to database
   console.log("saveMadLib() called");
+
+  // first, get the storyData object from createMadLib()
   var storyData = createMadLib();
+
+  //then, save the storyName and storyData object to the database
   db.collection("madlibs").doc(storyData.storyName).set(storyData);
   alert(storyData.storyName + " saved to database!");
 }
 
 function retrieveMadLib() {
-  // retrieve an existing madlib from database
+  // this method will retrieve an existing madlib from database
   console.log("retrieveMadLib() called");
+
+  // first, ask the user to type the story they want to retrieve
   var storyName = prompt("Enter the name of the story you want to look up:");
-  var storyData;
   db.collection("madlibs").doc(storyName).get().then((doc) => {
-      if (doc.exists) {
+    
+    // if the story exists in the database, show it on the website. else, say "Story not found!"  
+    if (doc.exists) {
         console.log("Document data:", doc.data());
-        storyData = doc.data();
+        var storyData = doc.data();
         document.getElementById("story").innerHTML = storyData.story;
       } else {
         // doc.data() will be undefined in this case
@@ -117,18 +128,17 @@ function retrieveMadLib() {
 }
 
 function editMadLib() {
-  // edit an existing madlib in database
+  // this method will allow the user to edit an existing madlib in database
   console.log("editMadLib() called");
-  // first retrieve an existing madlib from database
-  console.log("retrieveMadLib() called");
+  
+  // first, ask the user to retrieve an existing madlib from database
   var storyName = prompt("Enter the name of the story you want to look up:");
-  var storyData;
   db.collection("madlibs").doc(storyName).get().then((doc) => {
       if (doc.exists) {
         console.log("Document data:", doc.data());
-        storyData = doc.data();
+        var storyData = doc.data();
         
-        //if story is found, display all the inputs with the story
+        //if story is found, display all the previous inputs for the story. else, display "Story not found!"
         document.getElementById("adjective1").value = storyData.adjective1;
         document.getElementById("adjective2").value = storyData.adjective2;
         document.getElementById("adjective3").value = storyData.adjecive3;
